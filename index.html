@@ -2,144 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday</title>
-  <head>
-   <link rel="stylesheet" href="style.css">
-   </head>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #f9c5d1;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-
-    .gift-box {
-      width: 200px;
-      height: 200px;
-      background: #f5f5dc; /* Beige color */
-      position: relative;
-      cursor: pointer;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      transition: 0.5s;
-      transform-origin: bottom left; /* Untuk membuat kotak terbuka miring */
-    }
-
-    /* Pita di atas kotak hadiah */
-    .gift-box::before, .gift-box::after {
-      content: '';
-      position: absolute;
-      background-color: #ff69b4; /* Pink ribbon color */
-      border-radius: 5px;
-    }
-
-    .gift-box::before {
-      top: 45px;
-      left: 0;
-      width: 100%;
-      height: 20px;
-    }
-
-    .gift-box::after {
-      top: 0;
-      left: 45px;
-      width: 20px;
-      height: 100%;
-    }
-
-    #openButton {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      background-color: #ff4d6d;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: background 0.3s;
-    }
-
-    #openButton:hover {
-      background-color: #ff3366;
-    }
-
-    .happy-birthday {
-      display: none;
-      font-size: 30px;
-      color: white;
-      margin-top: 20px;
-      text-shadow: 2px 2px 4px #000;
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      animation: fadeIn 2s forwards;
-      opacity: 0;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh);
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .confetti {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: #fff;
-      animation: fall linear infinite;
-      top: 0;
-    }
-  </style>
+  <title>Happy Birthday!</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="gift-box" id="giftBox"></div>
-<button id="openButton">Open Gift</button>
-<div class="happy-birthday" id="message">🎉happy birth day my love❤️!!!🎉</div>
+<div class="container">
+  <div class="gift" id="gift">
+    <img src="gift-box.png" alt="Gift Box" id="gift-box">
+    <img src="gift-lid.png" alt="Gift Lid" id="gift-lid">
+    <p id="click-text">klikk akuu</p>
+  </div>
 
-<script>
-  document.getElementById('openButton').addEventListener('click', function() {
-    const giftBox = document.getElementById('giftBox');
-    const message = document.getElementById('message');
-    
-    // Buka hadiah (miringkan setengah dan buka kotak)
-    giftBox.style.transform = 'scale(0.8) rotateX(-25deg) rotateZ(-45deg)';
-    this.style.display = 'none'; // Hilangkan tombol
-    message.style.display = 'block'; // Tampilkan pesan
-    message.style.animation = 'fadeIn 2s forwards'; // Animasi teks
-    
-    // Buat confetti
-    for (let i = 0; i < 100; i++) {
-      const confetti = document.createElement('div');
-      confetti.classList.add('confetti');
-      confetti.style.left = Math.random() * 100 + "vw";
-      confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
-      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 80%)`;
-      confetti.style.width = Math.random() * 8 + 4 + "px";
-      confetti.style.height = confetti.style.width;
-      document.body.appendChild(confetti);
-    }
-  });
-</script>
-<body>
- <script src="script.js"></script>
- </body>
-</body>
+  <div class="message" id="message">
+    <h1>happy birthday,my love!!</h1>
+    <p>semoga kamu sehatt selaluu dan makinn sayangg ke akuuu yaaa!!,wkwk,love youu dehh pokokknyaaa</p>
+  </div>
 
+  <button id="change-bg">Ganti Background</button>
+
+  <audio id="pop-sound" src="pop.mp3" preload="auto"></audio>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
